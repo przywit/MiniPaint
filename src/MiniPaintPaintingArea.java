@@ -5,6 +5,9 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.*;
 import java.util.ArrayList;
 
+/**
+ * elo mordo
+ */
 public class MiniPaintPaintingArea extends JPanel {
 
     public MiniPaintPaintingArea() {
