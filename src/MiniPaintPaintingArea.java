@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class MiniPaintPaintingArea extends JPanel {
 
-    Tool currentTool = new DrawPoint(this);
+    Tool currentTool = new ObjectTransformation(this);
 
     public MiniPaintPaintingArea() {
 

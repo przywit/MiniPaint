@@ -53,11 +53,13 @@ public class MiniPaintDisplay extends JFrame {
 
     private void createToolBar() {
         var toolBar = new JToolBar(JToolBar.VERTICAL);
+        var objectTransformationButton = new JButton("Object Transformation");
         var drawPointButton = new JButton("Point");
         var drawLineButton = new JButton("Line");
         var drawRectangleButton = new JButton("Rectangle");
         var drawTriangleButton = new JButton("Triangle");
         var drawEllipseButton = new JButton("Ellipse");
+        toolBar.add(objectTransformationButton);
         toolBar.add(drawPointButton);
         toolBar.add(drawLineButton);
         toolBar.add(drawRectangleButton);
@@ -66,6 +68,12 @@ public class MiniPaintDisplay extends JFrame {
         add(toolBar, BorderLayout.WEST);
 
 
+        objectTransformationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paintPaintingArea.setCurrentTool(new ObjectTransformation(paintPaintingArea));
+            }
+        });
 
         drawPointButton.addActionListener(new ActionListener() {
             @Override

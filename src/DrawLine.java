@@ -19,7 +19,6 @@ public class DrawLine extends Tool {
             miniPaintPaintingArea.addShapeToShapesList(line);
             miniPaintPaintingArea.repaint();
         }
-
     }
 
     @Override
