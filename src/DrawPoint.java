@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Line2D;
 
 public class DrawPoint extends Tool {
 
@@ -11,11 +12,17 @@ public class DrawPoint extends Tool {
     public DrawPoint (MiniPaintPaintingArea miniPaintPaintingArea) {
         super(miniPaintPaintingArea);
     }
+    int originX = 0;
+    int originY = 0;
 
     @Override
     public void mousePressed(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {
-
+            originX = e.getX();
+            originY = e.getY();
+            Line2D point =  new Line2D.Float(originX, originY, originX, originY);
+            miniPaintPaintingArea.addShapeToShapesList(point);
+            miniPaintPaintingArea.repaint();
         }
     }
 

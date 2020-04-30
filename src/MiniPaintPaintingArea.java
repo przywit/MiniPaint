@@ -18,7 +18,6 @@ public class MiniPaintPaintingArea extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 currentTool.mousePressed(e);
-
         }
 
             @Override
@@ -40,8 +39,12 @@ public class MiniPaintPaintingArea extends JPanel {
 
     ArrayList<Shape> shapesList = new ArrayList<>();
 
-    private void addShapeToShapesList(Shape shape) {
+    public void addShapeToShapesList(Shape shape) {
         shapesList.add(shape);
+    }
+
+    public void clearShapesList() {
+        shapesList = new ArrayList<>();
     }
 
     @Override
@@ -50,6 +53,7 @@ public class MiniPaintPaintingArea extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         for (Shape shape : shapesList) {
             g2d.draw(shape);
+            g2d.fill(shape);
         }
     }
 }

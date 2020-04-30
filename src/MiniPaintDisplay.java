@@ -1,16 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 
 public class MiniPaintDisplay extends JFrame {
-
     MiniPaintPaintingArea paintPaintingArea;
 
     public MiniPaintDisplay() {
-
         paintPaintingArea = new MiniPaintPaintingArea();
 
         createMenuBar();
@@ -20,7 +16,6 @@ public class MiniPaintDisplay extends JFrame {
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         add(paintPaintingArea);
 
     }
@@ -36,6 +31,14 @@ public class MiniPaintDisplay extends JFrame {
         var newMenuItem = new JMenuItem("New");
         var openMenuItem = new JMenuItem("Open");
         var saveMenuItem = new JMenuItem("Save");
+
+        newMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               paintPaintingArea.clearShapesList();
+               paintPaintingArea.repaint();
+            }
+        });
 
         fileMenu.add(newMenuItem);
         fileMenu.add(openMenuItem);
@@ -99,6 +102,5 @@ public class MiniPaintDisplay extends JFrame {
             }
         });
     }
-
 
 }
