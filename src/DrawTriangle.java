@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
+
 
 public class DrawTriangle extends Tool {
 
@@ -13,7 +12,7 @@ public class DrawTriangle extends Tool {
     int [] yStartingCoordinates = new int[] {0,0,0};
     int originX = 0;
     int originY = 0;
-
+    int triangleIndex = 0;
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -23,7 +22,7 @@ public class DrawTriangle extends Tool {
             xStartingCoordinates = new int[]{originX, originX, originX};
             yStartingCoordinates = new int[]{originY, originY, originY};
             triangle = new Polygon(xStartingCoordinates, yStartingCoordinates,3);
-            miniPaintPaintingArea.addShapeToShapesList(triangle);
+            triangleIndex = miniPaintPaintingArea.addShapeToShapesList(triangle);
             miniPaintPaintingArea.repaint();
         }
     }
@@ -39,7 +38,6 @@ public class DrawTriangle extends Tool {
                 xStartingCoordinates[2] = xStartingCoordinates[2] + e.getX();
                 //yStartingCoordinates[2] stay as origin
                 triangle = new Polygon(xStartingCoordinates,yStartingCoordinates,3);
-                miniPaintPaintingArea.repaint();
             }
             else if((e.getY() < originY) && (e.getX() < originX)) { // II quarter
                 //xStartingCoordinates[0] stays as origin
@@ -49,7 +47,6 @@ public class DrawTriangle extends Tool {
                 //xStartingCoordinates[2] stays as origin
                 //yStartingCoordinates[2] stays as origin
                 triangle = new Polygon(xStartingCoordinates,yStartingCoordinates,3);
-                miniPaintPaintingArea.repaint();
             }
             else if((e.getY() > originY) && (e.getX() < originX)) {// III quarter
                 //xStartingCoordinates[0] stays as origin
@@ -59,7 +56,6 @@ public class DrawTriangle extends Tool {
                 //xStartingCoordinates[2] stay as origin
                 yStartingCoordinates[2] = yStartingCoordinates[2] + e.getY();
                 triangle = new Polygon(xStartingCoordinates,yStartingCoordinates,3);
-                miniPaintPaintingArea.repaint();
             }
             else { //IV quarter
                 //xStartingCoordinates[0] stays as origin
@@ -69,8 +65,9 @@ public class DrawTriangle extends Tool {
                 xStartingCoordinates[2] = e.getX();
                 yStartingCoordinates[2] = e.getY();
                 triangle = new Polygon(xStartingCoordinates,yStartingCoordinates,3);
-                miniPaintPaintingArea.repaint();
             }
+            miniPaintPaintingArea.setShape(triangle, triangleIndex);
+            miniPaintPaintingArea.repaint();
         }
 
     }

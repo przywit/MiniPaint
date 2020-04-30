@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.geom.*;
 import java.util.ArrayList;
 
 /**
@@ -39,8 +38,14 @@ public class MiniPaintPaintingArea extends JPanel {
 
     ArrayList<Shape> shapesList = new ArrayList<>();
 
-    public void addShapeToShapesList(Shape shape) {
+    public int addShapeToShapesList(Shape shape) {
         shapesList.add(shape);
+        return shapesList.size() - 1;
+    }
+    public void setShape(Shape shape, int shapeIndex) {
+        if (shapeIndex < shapesList.size()){
+            shapesList.set(shapeIndex, shape);
+        }
     }
 
     public void clearShapesList() {
