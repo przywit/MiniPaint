@@ -2,12 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
 
 public class MiniPaintDisplay extends JFrame {
-    int currentTool = 1;
+
+    MiniPaintPaintingArea paintPaintingArea;
 
     public MiniPaintDisplay() {
+
+        paintPaintingArea = new MiniPaintPaintingArea();
 
         createMenuBar();
         createToolBar();
@@ -17,8 +21,7 @@ public class MiniPaintDisplay extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        var miniPaintPaintingArea = new MiniPaintPaintingArea();
-        add(miniPaintPaintingArea);
+        add(paintPaintingArea);
 
     }
 
@@ -43,30 +46,58 @@ public class MiniPaintDisplay extends JFrame {
 
         setJMenuBar(menuBar);
     }
-    private JButton makeMyButton(String buttonName, final int buttonNumber) {
-        JButton button = new JButton(buttonName);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                    currentTool = buttonNumber;
-            }
-        });
-        return button;
-    }
+
 
     private void createToolBar() {
         var toolBar = new JToolBar(JToolBar.VERTICAL);
-        var drawPointButton =  makeMyButton("Point", 1);
-        var drawLineButton =  makeMyButton("Line", 2);
-        var drawRectangleButton =  makeMyButton("Rectangle", 3);
-        var drawTriangleButton =  makeMyButton("Triangle",4);
-        var drawEllipseButton =  makeMyButton("Ellipse", 5);
+        var drawPointButton = new JButton("Point");
+        var drawLineButton = new JButton("Line");
+        var drawRectangleButton = new JButton("Rectangle");
+        var drawTriangleButton = new JButton("Triangle");
+        var drawEllipseButton = new JButton("Ellipse");
         toolBar.add(drawPointButton);
         toolBar.add(drawLineButton);
         toolBar.add(drawRectangleButton);
         toolBar.add(drawTriangleButton);
         toolBar.add(drawEllipseButton);
         add(toolBar, BorderLayout.WEST);
+
+
+
+        drawPointButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paintPaintingArea.setCurrentTool(new DrawPoint(paintPaintingArea));
+            }
+        });
+        drawLineButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paintPaintingArea.setCurrentTool(new DrawLine(paintPaintingArea));
+
+            }
+        });
+        drawRectangleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paintPaintingArea.setCurrentTool(new DrawRectangle(paintPaintingArea));
+
+            }
+        });
+        drawTriangleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paintPaintingArea.setCurrentTool(new DrawTriangle(paintPaintingArea));
+
+            }
+        });
+        drawEllipseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paintPaintingArea.setCurrentTool(new DrawEllipse(paintPaintingArea));
+
+            }
+        });
     }
 
 

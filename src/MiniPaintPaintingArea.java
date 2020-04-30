@@ -10,16 +10,39 @@ import java.util.ArrayList;
  */
 public class MiniPaintPaintingArea extends JPanel {
 
+    Tool currentTool = new DrawPoint(this);
+
     public MiniPaintPaintingArea() {
+
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                repaint();
+                currentTool.mousePressed(e);
+
+        }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                currentTool.mouseReleased(e);
+            }
+        });
+        addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                currentTool.mouseDragged(e);
             }
         });
     }
 
-    ArrayList<Shape> shapesList = new ArrayList<Shape>();
+    public void setCurrentTool(Tool currentTool) {
+        this.currentTool = currentTool;
+    }
+
+    ArrayList<Shape> shapesList = new ArrayList<>();
+
+    private void addShapeToShapesList(Shape shape) {
+        shapesList.add(shape);
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
