@@ -17,6 +17,7 @@ public class DrawLine extends Tool {
             originY = e.getY();
             line = new Line2D.Float(originX,originY,originX,originY);
             miniPaintPaintingArea.addShapeToShapesList(line);
+            miniPaintPaintingArea.addColorToColorList();
             miniPaintPaintingArea.repaint();
         }
     }

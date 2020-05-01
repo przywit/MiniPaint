@@ -5,12 +5,16 @@ import java.awt.event.*;
 
 public class MiniPaintDisplay extends JFrame {
     MiniPaintPaintingArea paintPaintingArea;
+    JPopupMenu popupMenu;
+    Color currentColor = Color.black;
 
     public MiniPaintDisplay() {
         paintPaintingArea = new MiniPaintPaintingArea();
+        paintPaintingArea.setDisplay(this);
 
         createMenuBar();
         createToolBar();
+        cretePopupMenu();
 
         setTitle("MiniPaint");
         setSize(800, 600);
@@ -109,6 +113,22 @@ public class MiniPaintDisplay extends JFrame {
 
             }
         });
+    }
+
+    private void cretePopupMenu() {
+        popupMenu = new JPopupMenu();
+        var colorChooser = new JMenuItem("Choose color");
+        colorChooser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Color color = JColorChooser.showDialog(null,"Choose Color", null);
+                if (color != null) {
+                    currentColor = color;
+                }
+            }
+        });
+        popupMenu.add(colorChooser);
+        paintPaintingArea.setComponentPopupMenu(popupMenu);
     }
 
 }

@@ -3,6 +3,7 @@ import java.awt.event.MouseEvent;
 
 public class ObjectTransformation extends Tool {
     Shape objectToTransform;
+    int indexOfObjectToTransform;
     public ObjectTransformation(MiniPaintPaintingArea minipaintPaintingArea) {
         super(minipaintPaintingArea);
     }
@@ -11,8 +12,9 @@ public class ObjectTransformation extends Tool {
     public void mousePressed(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {
             for (Shape shape : miniPaintPaintingArea.shapesList) {
-                if (shape.contains(e.getX(),e.getY())){
+                if (shape.contains(e.getX(),e.getY())) {
                     objectToTransform = shape;
+                    indexOfObjectToTransform = miniPaintPaintingArea.shapesList.indexOf(shape);
                 }
             }
         }
@@ -20,7 +22,6 @@ public class ObjectTransformation extends Tool {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
     }
 
     @Override

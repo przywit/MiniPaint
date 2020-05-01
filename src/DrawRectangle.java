@@ -19,6 +19,7 @@ public class DrawRectangle extends Tool {
             originY = e.getY();
             rectangle = new Rectangle2D.Float(originX, originY, 0, 0);
             miniPaintPaintingArea.addShapeToShapesList(rectangle);
+            miniPaintPaintingArea.addColorToColorList();
             miniPaintPaintingArea.repaint();
         }
 

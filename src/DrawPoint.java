@@ -18,6 +18,7 @@ public class DrawPoint extends Tool {
             originY = e.getY();
             Line2D point =  new Line2D.Float(originX, originY, originX, originY);
             miniPaintPaintingArea.addShapeToShapesList(point);
+            miniPaintPaintingArea.addColorToColorList();
             miniPaintPaintingArea.repaint();
         }
     }

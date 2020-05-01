@@ -17,6 +17,7 @@ public class DrawEllipse extends Tool {
             originY = e.getY();
             ellipse = new Ellipse2D.Float(originX, originY, 0, 0);
             miniPaintPaintingArea.addShapeToShapesList(ellipse);
+            miniPaintPaintingArea.addColorToColorList();
             miniPaintPaintingArea.repaint();
         }
     }

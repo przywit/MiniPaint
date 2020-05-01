@@ -23,6 +23,7 @@ public class DrawTriangle extends Tool {
             yCoordinates = new int[]{originY, originY, originY};
             triangle = new Polygon(xCoordinates, yCoordinates,3);
             triangleIndex = miniPaintPaintingArea.addShapeToShapesList(triangle);
+            miniPaintPaintingArea.addColorToColorList();
             miniPaintPaintingArea.repaint();
         }
     }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class MiniPaintPaintingArea extends JPanel {
 
+    MiniPaintDisplay display;
     Tool currentTool = new ObjectTransformation(this);
 
     public MiniPaintPaintingArea() {
@@ -22,6 +23,9 @@ public class MiniPaintPaintingArea extends JPanel {
             @Override
             public void mouseReleased(MouseEvent e) {
                 currentTool.mouseReleased(e);
+                if (e.getButton() == MouseEvent.BUTTON3) {
+                    display.popupMenu.show(e.getComponent(), e.getX(), e.getY());
+                }
             }
         });
         addMouseMotionListener(new MouseAdapter() {
@@ -32,11 +36,21 @@ public class MiniPaintPaintingArea extends JPanel {
         });
     }
 
+    public void setDisplay(MiniPaintDisplay display){
+        this.display = display;
+    }
+
     public void setCurrentTool(Tool currentTool) {
         this.currentTool = currentTool;
     }
 
     ArrayList<Shape> shapesList = new ArrayList<>();
+    ArrayList<Color> colorsList = new ArrayList<>();
+
+    public void addColorToColorList () {
+        Color color = new Color(display.currentColor.getRGB());
+        colorsList.add(color);
+    }
 
     public int addShapeToShapesList(Shape shape) {
         shapesList.add(shape);
@@ -56,9 +70,9 @@ public class MiniPaintPaintingArea extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        for (Shape shape : shapesList) {
-            g2d.draw(shape);
-            g2d.fill(shape);
+        for (int i = 0; i < shapesList.size(); i++) {
+            g2d.setColor(colorsList.get(i));
+            g2d.fill(shapesList.get(i));
         }
     }
 }
