@@ -4,13 +4,13 @@ import java.awt.event.*;
 
 
 public class MiniPaintDisplay extends JFrame {
-    MiniPaintPaintingArea paintPaintingArea;
+    MiniPaintPaintingArea minipaintPaintingArea;
     JPopupMenu popupMenu;
     Color currentColor = Color.black;
 
     public MiniPaintDisplay() {
-        paintPaintingArea = new MiniPaintPaintingArea();
-        paintPaintingArea.setDisplay(this);
+        minipaintPaintingArea = new MiniPaintPaintingArea();
+        minipaintPaintingArea.setDisplay(this);
 
         createMenuBar();
         createToolBar();
@@ -20,7 +20,7 @@ public class MiniPaintDisplay extends JFrame {
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        add(paintPaintingArea);
+        add(minipaintPaintingArea);
 
     }
 
@@ -39,8 +39,8 @@ public class MiniPaintDisplay extends JFrame {
         newMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               paintPaintingArea.clearShapesList();
-               paintPaintingArea.repaint();
+               minipaintPaintingArea.clearShapesList();
+               minipaintPaintingArea.repaint();
             }
         });
 
@@ -50,7 +50,6 @@ public class MiniPaintDisplay extends JFrame {
         menuBar.add(fileMenu);
         menuBar.add(infoMenu);
         menuBar.add(helpMenu);
-
         setJMenuBar(menuBar);
     }
 
@@ -75,41 +74,41 @@ public class MiniPaintDisplay extends JFrame {
         objectTransformationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paintPaintingArea.setCurrentTool(new ObjectTransformation(paintPaintingArea));
+                minipaintPaintingArea.setCurrentTool(new ObjectTransformation(minipaintPaintingArea));
             }
         });
 
         drawPointButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paintPaintingArea.setCurrentTool(new DrawPoint(paintPaintingArea));
+                minipaintPaintingArea.setCurrentTool(new DrawPoint(minipaintPaintingArea));
             }
         });
         drawLineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paintPaintingArea.setCurrentTool(new DrawLine(paintPaintingArea));
+                minipaintPaintingArea.setCurrentTool(new DrawLine(minipaintPaintingArea));
 
             }
         });
         drawRectangleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paintPaintingArea.setCurrentTool(new DrawRectangle(paintPaintingArea));
+                minipaintPaintingArea.setCurrentTool(new DrawRectangle(minipaintPaintingArea));
 
             }
         });
         drawTriangleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paintPaintingArea.setCurrentTool(new DrawTriangle(paintPaintingArea));
+                minipaintPaintingArea.setCurrentTool(new DrawTriangle(minipaintPaintingArea));
 
             }
         });
         drawEllipseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                paintPaintingArea.setCurrentTool(new DrawEllipse(paintPaintingArea));
+                minipaintPaintingArea.setCurrentTool(new DrawEllipse(minipaintPaintingArea));
 
             }
         });
@@ -125,10 +124,16 @@ public class MiniPaintDisplay extends JFrame {
                 if (color != null) {
                     currentColor = color;
                 }
+                if (minipaintPaintingArea.objectToTransform.indexOfObjectToTransform != -1) {
+                    if(currentColor != minipaintPaintingArea.colorsList.get(minipaintPaintingArea.objectToTransform.indexOfObjectToTransform)) {
+                        minipaintPaintingArea.colorsList.set(minipaintPaintingArea.objectToTransform.indexOfObjectToTransform, currentColor);
+                    }
+                }
+                minipaintPaintingArea.repaint();
             }
         });
         popupMenu.add(colorChooser);
-        paintPaintingArea.setComponentPopupMenu(popupMenu);
+        minipaintPaintingArea.setComponentPopupMenu(popupMenu);
     }
 
 }

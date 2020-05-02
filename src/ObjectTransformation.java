@@ -2,30 +2,44 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class ObjectTransformation extends Tool {
-    Shape objectToTransform;
-    int indexOfObjectToTransform;
+    int indexOfObjectToTransform = -1;
+    int originX = 0;
+    int originY = 0;
     public ObjectTransformation(MiniPaintPaintingArea minipaintPaintingArea) {
         super(minipaintPaintingArea);
+        minipaintPaintingArea.setObjectToTransform(this);
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {
-            for (Shape shape : miniPaintPaintingArea.shapesList) {
-                if (shape.contains(e.getX(),e.getY())) {
-                    objectToTransform = shape;
-                    indexOfObjectToTransform = miniPaintPaintingArea.shapesList.indexOf(shape);
-                }
-            }
+            originX = e.getX();
+            originY = e.getY();
+            indexOfObjectToTransform = miniPaintPaintingArea.getIndexOfObjectByMousePosition(originX,originY);
         }
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
+        if(indexOfObjectToTransform != -1) {
+            if((e.getY() < originY) && (e.getX() > originX)) { // I quarter
+                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY);
+            }
+            else if((e.getY() < originY) && (e.getX() < originX)) { // II quarter
+                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY);
+            }
+            else if((e.getY() > originY) && (e.getX() < originX)) { // III quarter
+                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY);
+            }
+            else { // IV quarter
+                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY);
+
+            }
+            miniPaintPaintingArea.repaint();
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
     }
 }

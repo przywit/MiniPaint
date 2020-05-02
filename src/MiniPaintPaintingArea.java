@@ -5,10 +5,10 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 /**
- * elo mordo
+ *
  */
 public class MiniPaintPaintingArea extends JPanel {
-
+    ObjectTransformation objectToTransform;
     MiniPaintDisplay display;
     Tool currentTool = new ObjectTransformation(this);
 
@@ -38,6 +38,21 @@ public class MiniPaintPaintingArea extends JPanel {
 
     public void setDisplay(MiniPaintDisplay display){
         this.display = display;
+    }
+    public void setObjectToTransform(ObjectTransformation objectToTransform) {
+        this.objectToTransform = objectToTransform;
+    }
+
+    public int getIndexOfObjectByMousePosition (int x, int y) {
+        for (int i = shapesList.size() - 1; i >= 0; i--) {
+            if (shapesList.get(i).contains(x,y)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public void translateObject(int lengthOnXAxis, int LengthOnYAxis) {
+
     }
 
     public void setCurrentTool(Tool currentTool) {
