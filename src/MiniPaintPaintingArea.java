@@ -83,6 +83,10 @@ public class MiniPaintPaintingArea extends JPanel {
         this.currentTool = currentTool;
     }
 
+    public void changeScaleInScalesList(double deltaScale, int objectIndex) {
+        scalesList.set(objectIndex,scalesList.get(objectIndex) + deltaScale);
+    }
+
     public void changeCenterXCordInCenterXCordsList(int dx, int transformedObjectIndex) {
         centerXCordsList.set(transformedObjectIndex, centerXCordsList.get(transformedObjectIndex) + dx);
 }

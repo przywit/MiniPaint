@@ -6,7 +6,6 @@ public class ObjectTransformation extends Tool {
     int originX = 0;
     int originY = 0;
     final static float mouseWheelSensitivity = 0.1f;
-    double scale = 1.0;
 
     public ObjectTransformation(MiniPaintPaintingArea minipaintPaintingArea) {
         super(minipaintPaintingArea);
@@ -38,8 +37,8 @@ public class ObjectTransformation extends Tool {
 
     public void processMouseWheelRotation(MouseWheelEvent e) {
         if (indexOfObjectToTransform != -1) {
-            scale +=(e.getPreciseWheelRotation() * mouseWheelSensitivity);
-            miniPaintPaintingArea.scalesList.set(indexOfObjectToTransform, scale);
+            double deltaScale = miniPaintPaintingArea.scalesList.get(indexOfObjectToTransform) + (e.getPreciseWheelRotation() * mouseWheelSensitivity);
+            miniPaintPaintingArea.changeScaleInScalesList(deltaScale, indexOfObjectToTransform);
             miniPaintPaintingArea.transformObject(0, 0, indexOfObjectToTransform);
         }
     }
