@@ -1,6 +1,7 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
+
 public class ObjectTransformation extends Tool {
     int indexOfObjectToTransform = -1;
     int originX = 0;
@@ -12,6 +13,10 @@ public class ObjectTransformation extends Tool {
         minipaintPaintingArea.setObjectToTransform(this);
     }
 
+    /**
+     * if clicked on object method saves index of that object
+     * @param e ...
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         if (e.getButton() == MouseEvent.BUTTON1) {
@@ -21,25 +26,36 @@ public class ObjectTransformation extends Tool {
         }
     }
 
+    /**
+     * method responsible for translating an object , it calculates delta x and delta y made by mouse
+     * @param e ...
+     */
     @Override
     public void mouseDragged(MouseEvent e) {
         if (indexOfObjectToTransform != -1) {
-            miniPaintPaintingArea.transformObject(e.getX() - originX, e.getY() - originY, indexOfObjectToTransform);
+            miniPaintPaintingArea.translateObject(e.getX() - originX, e.getY() - originY, indexOfObjectToTransform);
             originX = e.getX();
             originY = e.getY();
             miniPaintPaintingArea.repaint();
         }
     }
 
+    /**
+     *
+     * @param e ...
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
     }
 
+    /**
+     * method responsible for receiving information about scaling an object if one had been selected.
+     * @param e ...
+     */
     public void processMouseWheelRotation(MouseWheelEvent e) {
         if (indexOfObjectToTransform != -1) {
-            double deltaScale = miniPaintPaintingArea.scalesList.get(indexOfObjectToTransform) + (e.getPreciseWheelRotation() * mouseWheelSensitivity);
-            miniPaintPaintingArea.changeScaleInScalesList(deltaScale, indexOfObjectToTransform);
-            miniPaintPaintingArea.transformObject(0, 0, indexOfObjectToTransform);
+            miniPaintPaintingArea.scaleObject((float) e.getPreciseWheelRotation() * mouseWheelSensitivity, indexOfObjectToTransform);
+            miniPaintPaintingArea.repaint();
         }
     }
 }

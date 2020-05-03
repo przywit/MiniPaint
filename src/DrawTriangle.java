@@ -13,8 +13,12 @@ public class DrawTriangle extends Tool {
     int originX = 0;
     int originY = 0;
     int triangleIndex = 0;
-    double scale = 1.0;
 
+    /**
+     * method saves place where user clicked and creates a new shape, which has active color
+     * in addition it saves the index of that triangle
+     * @param e ...
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {
@@ -23,13 +27,16 @@ public class DrawTriangle extends Tool {
             xCoordinates = new int[]{originX, originX, originX};
             yCoordinates = new int[]{originY, originY, originY};
             triangle = new Polygon(xCoordinates, yCoordinates,3);
-            miniPaintPaintingArea.addScaleToScalesList(scale);
             triangleIndex = miniPaintPaintingArea.addShapeToShapesList(triangle);
             miniPaintPaintingArea.addColorToColorList();
             miniPaintPaintingArea.repaint();
         }
     }
 
+    /**
+     * method responsible for changes made on current shape while drawing
+     * @param e ...
+     */
     @Override
     public void mouseDragged(MouseEvent e) {
         if(triangle != null) {
@@ -46,6 +53,10 @@ public class DrawTriangle extends Tool {
         }
 
 
+    /**
+     * we calculate the center cords of already drown shape
+     * @param e ...
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {

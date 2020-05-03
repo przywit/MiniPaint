@@ -1,13 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
-
+/**
+ * Class is responsible for displaying every think on the screen.
+ * Class has all necessary components such as tool-bar , menu-bar and also popupMenu.
+ */
 public class MiniPaintDisplay extends JFrame {
     MiniPaintPaintingArea minipaintPaintingArea;
     JPopupMenu popupMenu;
     Color currentColor = Color.black;
 
+    /**
+     *  Constructor creates painting area and creates all necessary containers
+     */
     public MiniPaintDisplay() {
         minipaintPaintingArea = new MiniPaintPaintingArea();
         minipaintPaintingArea.setDisplay(this);
@@ -24,6 +31,12 @@ public class MiniPaintDisplay extends JFrame {
 
     }
 
+    /**
+     * method creates menu-bar.
+     * clicking on help menu-item we give user information -> how to use that program.
+     * clicking on info menu-item we give user information -> destination,autor and name of our program.
+     * we do that by creating new frame, which is displayed after a click.
+     */
     private void createMenuBar() {
 
         var menuBar = new JMenuBar();
@@ -87,7 +100,10 @@ public class MiniPaintDisplay extends JFrame {
 
         var newMenuItem = new JMenuItem("New");
         var openMenuItem = new JMenuItem("Open");
+        openMenuItem.addActionListener(e -> load()); ////// Is ther any difference by useing "lambda" ? /////////
+        openMenuItem.addActionListener(event -> load());
         var saveMenuItem = new JMenuItem("Save");
+        saveMenuItem.addActionListener(event -> save());
 
         newMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -107,18 +123,17 @@ public class MiniPaintDisplay extends JFrame {
         setJMenuBar(menuBar);
     }
 
-
+    /**
+     * method creates tool-bar.
+     * clicking on the tool will change tool status to an active tool, which is necessary for drawing stuff on the board.
+     */
     private void createToolBar() {
         var toolBar = new JToolBar(JToolBar.VERTICAL);
         var objectTransformationButton = new JButton("ObjTrans");
-        var drawPointButton = new JButton("Point");
-        var drawLineButton = new JButton("Line");
         var drawRectangleButton = new JButton("Rectangle");
         var drawTriangleButton = new JButton("Triangle");
         var drawEllipseButton = new JButton("Ellipse");
         toolBar.add(objectTransformationButton);
-        toolBar.add(drawPointButton);
-        toolBar.add(drawLineButton);
         toolBar.add(drawRectangleButton);
         toolBar.add(drawTriangleButton);
         toolBar.add(drawEllipseButton);
@@ -129,20 +144,6 @@ public class MiniPaintDisplay extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 minipaintPaintingArea.setCurrentTool(new ObjectTransformation(minipaintPaintingArea));
-            }
-        });
-
-        drawPointButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                minipaintPaintingArea.setCurrentTool(new DrawPoint(minipaintPaintingArea));
-            }
-        });
-        drawLineButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                minipaintPaintingArea.setCurrentTool(new DrawLine(minipaintPaintingArea));
-
             }
         });
         drawRectangleButton.addActionListener(new ActionListener() {
@@ -168,6 +169,14 @@ public class MiniPaintDisplay extends JFrame {
         });
     }
 
+    /**
+     * methor creates popupMenu
+     * in this method we also want to change color of selected object.
+     * if index of Object to transform is -1 it means it is not selected.
+     *in current color variable we store info about current color we are already painting
+     * if user has selected an object and changed/(canceled) color we want to check if that object has the color user wanted.
+     *
+     */
     private void cretePopupMenu() {
         popupMenu = new JPopupMenu();
         var colorChooser = new JMenuItem("Choose color");
@@ -188,6 +197,32 @@ public class MiniPaintDisplay extends JFrame {
         });
         popupMenu.add(colorChooser);
         minipaintPaintingArea.setComponentPopupMenu(popupMenu);
+    }
+
+    /**
+     *
+     */
+    private void save(){
+        var savePanel = new JFileChooser();
+        int success = savePanel.showSaveDialog(this);
+
+        if(success == JFileChooser.APPROVE_OPTION){
+            File file = savePanel.getSelectedFile();
+            minipaintPaintingArea.save(file);
+        }
+    }
+    /**
+     *
+     */
+    private void load(){
+        var openPanel = new JFileChooser();
+        int success = openPanel.showOpenDialog(this);
+
+        if(success == JFileChooser.APPROVE_OPTION){
+            File file = openPanel.getSelectedFile();
+            minipaintPaintingArea.load(file);
+            minipaintPaintingArea.repaint();
+        }
     }
 
 }

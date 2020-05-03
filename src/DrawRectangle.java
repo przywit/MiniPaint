@@ -15,8 +15,11 @@ public class DrawRectangle extends Tool {
     int height = 0;
     int xCenterCord = 0;
     int yCenterCord = 0;
-    double scale = 1.0;
 
+    /**
+     * method saves place where user clicked and creates a new shape, which has active color
+     * @param e ...
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {
@@ -25,34 +28,37 @@ public class DrawRectangle extends Tool {
             rectangle = new Rectangle2D.Float(originX, originY, 0, 0);
             miniPaintPaintingArea.addShapeToShapesList(rectangle);
             miniPaintPaintingArea.addColorToColorList();
-            miniPaintPaintingArea.addScaleToScalesList(scale);
             miniPaintPaintingArea.repaint();
         }
 
     }
 
+    /**
+     * method responsible for changes made on current shape while drawing
+     * @param e ...
+     */
     @Override
     public void mouseDragged(MouseEvent e) {
         if(rectangle != null) {
-            if((e.getY() < originY) && (e.getX() > originX)) {
+            if((e.getY() < originY) && (e.getX() > originX)) { // I quarter
                 width = e.getX() - originX;
                 height = originY - e.getY();
                 rectangle.setRect(originX, e.getY(),width,height);
                 miniPaintPaintingArea.repaint();
             }
-            else if((e.getY() < originY) && (e.getX() < originX)) {
+            else if((e.getY() < originY) && (e.getX() < originX)) { // II quarter
                 width = originX - e.getX();
                 height = originY - e.getY();
                 rectangle.setRect(e.getX(), e.getY(),width,height);
                 miniPaintPaintingArea.repaint();
             }
-            else if((e.getY() > originY) && (e.getX() < originX)) {
+            else if((e.getY() > originY) && (e.getX() < originX)) { // III quarter
                 width = originX - e.getX();
                 height = e.getY() - originY;
                 rectangle.setRect(e.getX(), originY,width,height);
                 miniPaintPaintingArea.repaint();
             }
-            else {
+            else { // IV quarter
                 width = e.getX() - originX;
                 height = e.getY() - originY;
                 xCenterCord = originX + (width / 2);
@@ -63,6 +69,10 @@ public class DrawRectangle extends Tool {
         }
     }
 
+    /**
+     * we calculate the center cords of already drown shape
+     * @param e ...
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {
