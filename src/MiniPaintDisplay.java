@@ -32,6 +32,56 @@ public class MiniPaintDisplay extends JFrame {
         var infoMenu = new JMenu("Info");
         var helpMenu = new JMenu("Help");
 
+        var helpMenuItem = new JMenuItem("Help");
+
+        helpMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setTitle("Help");
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.setLocationRelativeTo(null);
+                frame.setSize(500,200);
+                frame.setResizable(false);
+                JLabel lHelp1 = new JLabel("Choose paint tool from tool-bar and start drawing by dragging mouse");
+                JLabel lHelp2 = new JLabel("To transform shape choose ObjTrans, and select and object by left click");
+                JLabel lHelp3 = new JLabel("To scale selected shape use mouse wheal, to move shape click and drag.");
+                lHelp1.setBounds(0,10, 450,20);
+                lHelp2.setBounds(0,40,450,20);
+                lHelp3.setBounds(0,70,450,20);
+                frame.add(lHelp1);
+                frame.add(lHelp2);
+                frame.add(lHelp3);
+
+                frame.setVisible(true);
+            }
+        });
+
+        var infoMenuItem = new JMenuItem("Info");
+
+        infoMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setTitle("Info");
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.setLocationRelativeTo(null);
+                frame.setSize(400,200);
+                frame.setResizable(false);
+                JLabel name = new JLabel("Name: Mini Paint");
+                JLabel destination = new JLabel("Destination: Made to let user spend time with figures");
+                JLabel author =  new JLabel("Author: Witold Przybył");
+                name.setBounds(0,10, 100,20);
+                destination.setBounds(0,40,300,20);
+                author.setBounds(0,60,100,20);
+                frame.add(name);
+                frame.add(destination);
+                frame.add(author);
+
+                frame.setVisible(true);
+            }
+        });
+
         var newMenuItem = new JMenuItem("New");
         var openMenuItem = new JMenuItem("Open");
         var saveMenuItem = new JMenuItem("Save");
@@ -43,7 +93,8 @@ public class MiniPaintDisplay extends JFrame {
                minipaintPaintingArea.repaint();
             }
         });
-
+        helpMenu.add(helpMenuItem);
+        infoMenu.add(infoMenuItem);
         fileMenu.add(newMenuItem);
         fileMenu.add(openMenuItem);
         fileMenu.add(saveMenuItem);

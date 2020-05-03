@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
 /**
@@ -11,6 +12,7 @@ public class MiniPaintPaintingArea extends JPanel {
     ObjectTransformation objectToTransform;
     MiniPaintDisplay display;
     Tool currentTool = new ObjectTransformation(this);
+    Graphics2D g2d;
 
     public MiniPaintPaintingArea() {
 
@@ -51,7 +53,10 @@ public class MiniPaintPaintingArea extends JPanel {
         }
         return -1;
     }
-    public void translateObject(int lengthOnXAxis, int LengthOnYAxis) {
+    public void translateObject(int lengthOnXAxis, int lengthOnYAxis, int objectIndex) {
+        AffineTransform transform = new AffineTransform();
+        transform.translate(lengthOnXAxis,lengthOnYAxis);
+        System.out.println(transform);
 
     }
 

@@ -23,16 +23,16 @@ public class ObjectTransformation extends Tool {
     public void mouseDragged(MouseEvent e) {
         if(indexOfObjectToTransform != -1) {
             if((e.getY() < originY) && (e.getX() > originX)) { // I quarter
-                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY);
+                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
             }
             else if((e.getY() < originY) && (e.getX() < originX)) { // II quarter
-                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY);
+                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
             }
             else if((e.getY() > originY) && (e.getX() < originX)) { // III quarter
-                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY);
+                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
             }
             else { // IV quarter
-                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY);
+                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
 
             }
             miniPaintPaintingArea.repaint();
