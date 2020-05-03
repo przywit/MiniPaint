@@ -32,4 +32,5 @@ public class DrawPoint extends Tool {
     public void mouseReleased(MouseEvent e) {
 
     }
+
 }

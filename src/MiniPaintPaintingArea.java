@@ -12,7 +12,8 @@ public class MiniPaintPaintingArea extends JPanel {
     ObjectTransformation objectToTransform;
     MiniPaintDisplay display;
     Tool currentTool = new ObjectTransformation(this);
-    Graphics2D g2d;
+    AffineTransform transform;
+    int scale = 1;
 
     public MiniPaintPaintingArea() {
 
@@ -53,23 +54,47 @@ public class MiniPaintPaintingArea extends JPanel {
         }
         return -1;
     }
-    public void translateObject(int lengthOnXAxis, int lengthOnYAxis, int objectIndex) {
-        AffineTransform transform = new AffineTransform();
-        transform.translate(lengthOnXAxis,lengthOnYAxis);
-        System.out.println(transform);
-
+    public void transformObject (int lengthOnXAxis,int lengthOnYAxis,int objectIndex) {
+        int centerX = centerXCordsList.get(objectIndex);
+        int centerY = centerYCordsList.get(objectIndex);
+        transform = new AffineTransform();
+            transform.translate(-centerX,-centerY);
+            transform.scale(scale,scale);
+            transform.translate(centerX + lengthOnXAxis, centerY + lengthOnYAxis);
+        changeCenterXCordInCenterXCordsList(lengthOnXAxis, objectIndex);
+        changeCenterYCordInCenterYCordsList(lengthOnYAxis, objectIndex);
+        for (int i = 0; i < shapesList.size() - 1; i++) {
+            if (objectIndex == i) {
+                shapesList.set(objectIndex,transform.createTransformedShape(shapesList.get(i)));
+            }
+        }
     }
 
     public void setCurrentTool(Tool currentTool) {
         this.currentTool = currentTool;
     }
 
+    ArrayList<Integer> centerXCordsList = new ArrayList<>();
+    ArrayList<Integer> centerYCordsList = new ArrayList<>();
     ArrayList<Shape> shapesList = new ArrayList<>();
     ArrayList<Color> colorsList = new ArrayList<>();
+
+    public void changeCenterXCordInCenterXCordsList(int dx, int transformedObjectIndex) {
+        centerXCordsList.set(transformedObjectIndex, centerXCordsList.get(transformedObjectIndex) + dx);
+}
+    public void changeCenterYCordInCenterYCordsList(int dy, int transformedObjectIndex) {
+        centerYCordsList.set(transformedObjectIndex, centerYCordsList.get(transformedObjectIndex) + dy);
+    }
 
     public void addColorToColorList () {
         Color color = new Color(display.currentColor.getRGB());
         colorsList.add(color);
+    }
+    public void addCenterXCordToCenterXCordsList (int xCenterCord) {
+        centerXCordsList.add(xCenterCord);
+    }
+    public void addCenterYCordToCenterYCordsList (int yCenterCord) {
+        centerYCordsList.add(yCenterCord);
     }
 
     public int addShapeToShapesList(Shape shape) {
@@ -82,8 +107,12 @@ public class MiniPaintPaintingArea extends JPanel {
         }
     }
 
-    public void clearShapesList() {
+    public void clearAllLists() {
         shapesList = new ArrayList<>();
+        colorsList = new ArrayList<>();
+        centerXCordsList = new ArrayList<>();
+        centerYCordsList = new ArrayList<>();
+        display.currentColor = Color.black;
     }
 
     @Override

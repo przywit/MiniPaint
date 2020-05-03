@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class ObjectTransformation extends Tool {
@@ -21,25 +20,27 @@ public class ObjectTransformation extends Tool {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if(indexOfObjectToTransform != -1) {
-            if((e.getY() < originY) && (e.getX() > originX)) { // I quarter
-                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
-            }
+        if (indexOfObjectToTransform != -1) {
+           // if ((e.getY() < originY) && (e.getX() > originX)) { // I quarter
+                miniPaintPaintingArea.transformObject(e.getX() - originX, e.getY() - originY, indexOfObjectToTransform);
+/*            }
             else if((e.getY() < originY) && (e.getX() < originX)) { // II quarter
-                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
+                miniPaintPaintingArea.translateObject(centerX, centerY,e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
             }
             else if((e.getY() > originY) && (e.getX() < originX)) { // III quarter
-                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
+                miniPaintPaintingArea.translateObject(centerX, centerY,e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
             }
             else { // IV quarter
-                miniPaintPaintingArea.translateObject(e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
+                miniPaintPaintingArea.translateObject(centerX, centerY,e.getX() - originX,e.getY() - originY, indexOfObjectToTransform);
 
+            }*/
+                miniPaintPaintingArea.repaint();
             }
-            miniPaintPaintingArea.repaint();
         }
-    }
+   // }
 
     @Override
     public void mouseReleased(MouseEvent e) {
     }
+
 }

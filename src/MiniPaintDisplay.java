@@ -89,7 +89,7 @@ public class MiniPaintDisplay extends JFrame {
         newMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               minipaintPaintingArea.clearShapesList();
+               minipaintPaintingArea.clearAllLists();
                minipaintPaintingArea.repaint();
             }
         });
