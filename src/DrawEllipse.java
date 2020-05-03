@@ -11,6 +11,7 @@ public class DrawEllipse extends Tool {
     int originY = 0;
     int width = 0;
     int height = 0;
+    double scale = 1.0;
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -19,6 +20,7 @@ public class DrawEllipse extends Tool {
             originY = e.getY();
             ellipse = new Ellipse2D.Float(originX, originY, 0, 0);
             miniPaintPaintingArea.addShapeToShapesList(ellipse);
+            miniPaintPaintingArea.addScaleToScalesList(scale);
             miniPaintPaintingArea.addColorToColorList();
             miniPaintPaintingArea.repaint();
         }

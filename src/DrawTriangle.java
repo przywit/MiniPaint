@@ -13,6 +13,7 @@ public class DrawTriangle extends Tool {
     int originX = 0;
     int originY = 0;
     int triangleIndex = 0;
+    double scale = 1.0;
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -22,6 +23,7 @@ public class DrawTriangle extends Tool {
             xCoordinates = new int[]{originX, originX, originX};
             yCoordinates = new int[]{originY, originY, originY};
             triangle = new Polygon(xCoordinates, yCoordinates,3);
+            miniPaintPaintingArea.addScaleToScalesList(scale);
             triangleIndex = miniPaintPaintingArea.addShapeToShapesList(triangle);
             miniPaintPaintingArea.addColorToColorList();
             miniPaintPaintingArea.repaint();
@@ -49,6 +51,7 @@ public class DrawTriangle extends Tool {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {
             miniPaintPaintingArea.addCenterXCordToCenterXCordsList((xCoordinates[0] + xCoordinates[1] + xCoordinates[2]) / 3);
             miniPaintPaintingArea.addCenterYCordToCenterYCordsList((yCoordinates[0] + yCoordinates[1] + yCoordinates[2]) / 3);
+
             triangle = null;
         }
 

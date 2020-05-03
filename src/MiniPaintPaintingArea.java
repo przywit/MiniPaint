@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
@@ -9,11 +10,15 @@ import java.util.ArrayList;
  *
  */
 public class MiniPaintPaintingArea extends JPanel {
+    ArrayList<Integer> centerXCordsList = new ArrayList<>();
+    ArrayList<Integer> centerYCordsList = new ArrayList<>();
+    ArrayList<Shape> shapesList = new ArrayList<>();
+    ArrayList<Color> colorsList = new ArrayList<>();
+    ArrayList<Double> scalesList = new ArrayList<>();
     ObjectTransformation objectToTransform;
     MiniPaintDisplay display;
     Tool currentTool = new ObjectTransformation(this);
     AffineTransform transform;
-    int scale = 1;
 
     public MiniPaintPaintingArea() {
 
@@ -37,7 +42,15 @@ public class MiniPaintPaintingArea extends JPanel {
                 currentTool.mouseDragged(e);
             }
         });
+
+        addMouseWheelListener(new MouseAdapter() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                currentTool.processMouseWheelRotation(e);
+            }
+        });
     }
+
 
     public void setDisplay(MiniPaintDisplay display){
         this.display = display;
@@ -58,26 +71,17 @@ public class MiniPaintPaintingArea extends JPanel {
         int centerX = centerXCordsList.get(objectIndex);
         int centerY = centerYCordsList.get(objectIndex);
         transform = new AffineTransform();
-            transform.translate(-centerX,-centerY);
-            transform.scale(scale,scale);
-            transform.translate(centerX + lengthOnXAxis, centerY + lengthOnYAxis);
+        transform.translate(-centerX,-centerY);
+        transform.scale(scalesList.get(objectIndex), scalesList.get(objectIndex));
+        transform.translate(centerX + lengthOnXAxis, centerY + lengthOnYAxis);
         changeCenterXCordInCenterXCordsList(lengthOnXAxis, objectIndex);
         changeCenterYCordInCenterYCordsList(lengthOnYAxis, objectIndex);
-        for (int i = 0; i < shapesList.size() - 1; i++) {
-            if (objectIndex == i) {
-                shapesList.set(objectIndex,transform.createTransformedShape(shapesList.get(i)));
-            }
-        }
+        shapesList.set(objectIndex,transform.createTransformedShape(shapesList.get(objectIndex)));
     }
 
     public void setCurrentTool(Tool currentTool) {
         this.currentTool = currentTool;
     }
-
-    ArrayList<Integer> centerXCordsList = new ArrayList<>();
-    ArrayList<Integer> centerYCordsList = new ArrayList<>();
-    ArrayList<Shape> shapesList = new ArrayList<>();
-    ArrayList<Color> colorsList = new ArrayList<>();
 
     public void changeCenterXCordInCenterXCordsList(int dx, int transformedObjectIndex) {
         centerXCordsList.set(transformedObjectIndex, centerXCordsList.get(transformedObjectIndex) + dx);
@@ -95,6 +99,9 @@ public class MiniPaintPaintingArea extends JPanel {
     }
     public void addCenterYCordToCenterYCordsList (int yCenterCord) {
         centerYCordsList.add(yCenterCord);
+    }
+    public void addScaleToScalesList(double scale) {
+        scalesList.add(scale);
     }
 
     public int addShapeToShapesList(Shape shape) {

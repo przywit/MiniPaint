@@ -45,13 +45,16 @@ public class MiniPaintDisplay extends JFrame {
                 frame.setResizable(false);
                 JLabel lHelp1 = new JLabel("Choose paint tool from tool-bar and start drawing by dragging mouse");
                 JLabel lHelp2 = new JLabel("To transform shape choose ObjTrans, and select and object by left click");
-                JLabel lHelp3 = new JLabel("To scale selected shape use mouse wheal, to move shape click and drag.");
+                JLabel lHelp3 = new JLabel("To deselect : left click on empty space in painting area");
+                JLabel lHelp4 = new JLabel("To scale selected shape use mouse wheal, to move shape click and drag.");
                 lHelp1.setBounds(0,10, 450,20);
                 lHelp2.setBounds(0,40,450,20);
                 lHelp3.setBounds(0,70,450,20);
+                lHelp3.setBounds(0,100,450,20);
                 frame.add(lHelp1);
                 frame.add(lHelp2);
                 frame.add(lHelp3);
+                frame.add(lHelp4);
 
                 frame.setVisible(true);
             }

@@ -15,6 +15,7 @@ public class DrawRectangle extends Tool {
     int height = 0;
     int xCenterCord = 0;
     int yCenterCord = 0;
+    double scale = 1.0;
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -24,6 +25,7 @@ public class DrawRectangle extends Tool {
             rectangle = new Rectangle2D.Float(originX, originY, 0, 0);
             miniPaintPaintingArea.addShapeToShapesList(rectangle);
             miniPaintPaintingArea.addColorToColorList();
+            miniPaintPaintingArea.addScaleToScalesList(scale);
             miniPaintPaintingArea.repaint();
         }
 
