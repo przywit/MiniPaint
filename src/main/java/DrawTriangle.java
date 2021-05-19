@@ -8,11 +8,9 @@ public class DrawTriangle extends Tool {
         super(miniPaintPaintingArea);
     }
     Polygon triangle =  new Polygon();
-    int [] xCoordinates = new int[] {0,0,0};
-    int [] yCoordinates = new int[] {0,0,0};
-    int originX = 0;
-    int originY = 0;
-    int triangleIndex = 0;
+    private int [] xCoordinates = new int[] {0,0,0};
+    private int [] yCoordinates = new int[] {0,0,0};
+    private int triangleIndex = 0;
 
     /**
      * method saves place where user clicked and creates a new shape, which has active color
@@ -22,8 +20,8 @@ public class DrawTriangle extends Tool {
     @Override
     public void mousePressed(MouseEvent e) {
         if ( e.getButton() == MouseEvent.BUTTON1 ) {
-            originX = e.getX();
-            originY = e.getY();
+            int originX = e.getX();
+            int originY = e.getY();
             xCoordinates = new int[]{originX, originX, originX};
             yCoordinates = new int[]{originY, originY, originY};
             triangle = new Polygon(xCoordinates, yCoordinates,3);

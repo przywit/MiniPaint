@@ -8,9 +8,9 @@ import java.io.File;
  * Class has all necessary components such as tool-bar , menu-bar and also popupMenu.
  */
 public class MiniPaintDisplay extends JFrame {
-    MiniPaintPaintingArea minipaintPaintingArea;
-    JPopupMenu popupMenu;
-    Color currentColor = Color.black;
+    private final MiniPaintPaintingArea minipaintPaintingArea;
+    private JPopupMenu popupMenu;
+    private Color currentColor = Color.black;
 
     /**
      *  Constructor creates painting area and creates all necessary containers
@@ -33,8 +33,8 @@ public class MiniPaintDisplay extends JFrame {
 
     /**
      * method creates menu-bar.
-     * clicking on help menu-item we give user information -> how to use that program.
-     * clicking on info menu-item we give user information -> destination,autor and name of our program.
+     * clicking on help menu-item we give user information - how to use that program.
+     * clicking on info menu-item we give user information - destination,autor and name of our program.
      * we do that by creating new frame, which is displayed after a click.
      */
     private void createMenuBar() {
@@ -100,7 +100,7 @@ public class MiniPaintDisplay extends JFrame {
 
         var newMenuItem = new JMenuItem("New");
         var openMenuItem = new JMenuItem("Open");
-        openMenuItem.addActionListener(e -> load()); ////// Is ther any difference by useing "lambda" ? /////////
+        //openMenuItem.addActionListener(e -> load()); ////// Is ther any difference by useing "lambda" ? /////////
         openMenuItem.addActionListener(event -> load());
         var saveMenuItem = new JMenuItem("Save");
         saveMenuItem.addActionListener(event -> save());
@@ -187,9 +187,9 @@ public class MiniPaintDisplay extends JFrame {
                 if (color != null) {
                     currentColor = color;
                 }
-                if (minipaintPaintingArea.objectToTransform.indexOfObjectToTransform != -1) {
-                    if(currentColor != minipaintPaintingArea.colorsList.get(minipaintPaintingArea.objectToTransform.indexOfObjectToTransform)) {
-                        minipaintPaintingArea.colorsList.set(minipaintPaintingArea.objectToTransform.indexOfObjectToTransform, currentColor);
+                if (minipaintPaintingArea.objectToTransform.getIndexOfObjectToTransform() != -1) {
+                    if(currentColor != minipaintPaintingArea.colorsList.get(minipaintPaintingArea.objectToTransform.getIndexOfObjectToTransform())) {
+                        minipaintPaintingArea.colorsList.set(minipaintPaintingArea.objectToTransform.getIndexOfObjectToTransform(), currentColor);
                     }
                 }
                 minipaintPaintingArea.repaint();
@@ -223,6 +223,17 @@ public class MiniPaintDisplay extends JFrame {
             minipaintPaintingArea.load(file);
             minipaintPaintingArea.repaint();
         }
+    }
+
+    public JPopupMenu getPopupMenu() {
+        return popupMenu;
+    }
+
+    public Color getCurrentColor() {
+        return currentColor;
+    }
+    public void setCurrentColor(Color color) {
+        currentColor = color;
     }
 
 }

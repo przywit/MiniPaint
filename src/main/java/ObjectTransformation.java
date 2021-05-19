@@ -3,9 +3,9 @@ import java.awt.event.MouseWheelEvent;
 
 
 public class ObjectTransformation extends Tool {
-    int indexOfObjectToTransform = -1;
-    int originX = 0;
-    int originY = 0;
+    private int indexOfObjectToTransform = -1;
+    private int originX = 0;
+    private int originY = 0;
     final static float mouseWheelSensitivity = 0.1f;
 
     public ObjectTransformation(MiniPaintPaintingArea minipaintPaintingArea) {
@@ -57,5 +57,9 @@ public class ObjectTransformation extends Tool {
             miniPaintPaintingArea.scaleObject((float) e.getPreciseWheelRotation() * mouseWheelSensitivity, indexOfObjectToTransform);
             miniPaintPaintingArea.repaint();
         }
+    }
+
+    public int getIndexOfObjectToTransform() {
+        return indexOfObjectToTransform;
     }
 }

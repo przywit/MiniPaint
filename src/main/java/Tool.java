@@ -9,6 +9,7 @@ public abstract class Tool {
 
     /**
      * we need to have access to methods in MiniPaintPaintingArea class
+     * @param minipaintPaintingArea minipaintPainting area
      */
     public Tool (MiniPaintPaintingArea minipaintPaintingArea) {
         this.miniPaintPaintingArea = minipaintPaintingArea;

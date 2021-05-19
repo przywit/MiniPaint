@@ -35,7 +35,7 @@ public class MiniPaintPaintingArea extends JPanel {
             public void mouseReleased(MouseEvent e) {
                 currentTool.mouseReleased(e);
                 if (e.getButton() == MouseEvent.BUTTON3) {
-                    display.popupMenu.show(e.getComponent(), e.getX(), e.getY());
+                    display.getPopupMenu().show(e.getComponent(), e.getX(), e.getY());
                 }
             }
         });
@@ -56,7 +56,7 @@ public class MiniPaintPaintingArea extends JPanel {
 
     /**
      * method necessary to set a current display we have, we need a reference to that display to create pop up menu
-     * @param display
+     * @param display display
      */
     public void setDisplay(MiniPaintDisplay display){
         this.display = display;
@@ -64,7 +64,7 @@ public class MiniPaintPaintingArea extends JPanel {
 
     /**
      * necessary to work with popUpMenu, we need reference to index of a selected object
-     * @param objectToTransform
+     * @param objectToTransform well it is an objcet to transform
      */
     public void setObjectToTransform(ObjectTransformation objectToTransform) {
         this.objectToTransform = objectToTransform;
@@ -151,12 +151,13 @@ public class MiniPaintPaintingArea extends JPanel {
      * method adds new color to colors list
      */
     public void addColorToColorList () {
-        Color color = new Color(display.currentColor.getRGB());
+        Color color = new Color(display.getCurrentColor().getRGB());
         colorsList.add(color);
     }
 
     /**
      * method adds new center cord on X axis to center X cords list
+     * @param xCenterCord x Center Cord
      */
     public void addCenterXCordToCenterXCordsList (int xCenterCord) {
         centerXCordsList.add(xCenterCord);
@@ -164,6 +165,7 @@ public class MiniPaintPaintingArea extends JPanel {
 
     /**
      * method adds new center cord on Y axis to center Y cords list
+     * @param yCenterCord y Center cord
      */
     public void addCenterYCordToCenterYCordsList (int yCenterCord) {
         centerYCordsList.add(yCenterCord);
@@ -198,7 +200,7 @@ public class MiniPaintPaintingArea extends JPanel {
         colorsList = new ArrayList<>();
         centerXCordsList = new ArrayList<>();
         centerYCordsList = new ArrayList<>();
-        display.currentColor = Color.black;
+        display.setCurrentColor(Color.black);
     }
 
     /**

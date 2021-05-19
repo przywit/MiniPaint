@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="542ac94e-1dd1-497a-9918-9eb09940c6d1" name="Default Changelist" comment="Project DONE !">
+      <change beforePath="$PROJECT_DIR$/Lista4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lista4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lista4/MiniPaintDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lista4/MiniPaintDisplay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lista4/MiniPaintPaintingArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lista4/MiniPaintPaintingArea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawEllipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DrawEllipse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DrawRectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DrawTriangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MiniPaint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MiniPaintDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MiniPaintDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MiniPaintPaintingArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MiniPaintPaintingArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjectTransformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ObjectTransformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tool.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\Programy\Java\Lista4\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1bCig1ImTZXEs2t0JfSLT5LX53F" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Gradle Tasks" flag="true" />
+      <visibility group="Gradle tasks" flag="false" />
+      <visibility group="Grunt" flag="true" />
+      <visibility group="Grunt tasks" flag="false" />
+      <visibility group="Gulp" flag="true" />
+      <visibility group="Gulp tasks" flag="false" />
+      <visibility group="Maven Goals" flag="true" />
+      <visibility group="Maven goals" flag="false" />
+      <visibility group="Node.js" flag="false" />
+      <visibility group="Recent projects" flag="false" />
+      <visibility group="Run configurations" flag="false" />
+      <visibility group="npm" flag="false" />
+      <visibility group="sbt" flag="false" />
+      <visibility group="yarn" flag="false" />
+    </myKeys>
+  </component>
+  <component name="RunManager">
+    <configuration name="MiniPaint" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="16" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MiniPaint" />
+      <module name="Lista4" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="542ac94e-1dd1-497a-9918-9eb09940c6d1" name="Default Changelist" comment="" />
+      <created>1588142583778</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588142583778</updated>
+      <workItem from="1588142588235" duration="14855000" />
+      <workItem from="1588184140000" duration="1657000" />
+      <workItem from="1588186969316" duration="5629000" />
+      <workItem from="1588194591486" duration="1487000" />
+      <workItem from="1588236740889" duration="22061000" />
+      <workItem from="1588272476212" duration="8524000" />
+      <workItem from="1588320382783" duration="16781000" />
+      <workItem from="1588360115315" duration="159000" />
+      <workItem from="1588408910715" duration="11207000" />
+      <workItem from="1588491166485" duration="9718000" />
+      <workItem from="1588504841144" duration="28050000" />
+      <workItem from="1588543780718" duration="252000" />
+      <workItem from="1588544091059" duration="12000" />
+      <workItem from="1588593796039" duration="258000" />
+      <workItem from="1588614659876" duration="185000" />
+      <workItem from="1589490506949" duration="3986000" />
+      <workItem from="1589627022502" duration="2640000" />
+      <workItem from="1589639425055" duration="14000" />
+      <workItem from="1589739688125" duration="1597000" />
+      <workItem from="1589795893371" duration="2664000" />
+      <workItem from="1589880258265" duration="6077000" />
+      <workItem from="1589971794685" duration="1635000" />
+      <workItem from="1589977883821" duration="829000" />
+      <workItem from="1589980175874" duration="1951000" />
+      <workItem from="1589983573086" duration="616000" />
+      <workItem from="1589984206733" duration="7000" />
+      <workItem from="1590138047548" duration="3789000" />
+      <workItem from="1590326610929" duration="15000" />
+      <workItem from="1590331800703" duration="57000" />
+      <workItem from="1590339960842" duration="450000" />
+      <workItem from="1590345507270" duration="96000" />
+      <workItem from="1590345987312" duration="73000" />
+      <workItem from="1590346135200" duration="646000" />
+      <workItem from="1621346038835" duration="506000" />
+      <workItem from="1621454570484" duration="1000000" />
+    </task>
+    <task id="LOCAL-00001" summary="adding documentation">
+      <created>1588195010332</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588195010332</updated>
+    </task>
+    <task id="LOCAL-00002" summary="now it reacts to mouse actions !">
+      <created>1588253456106</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1588253456106</updated>
+    </task>
+    <task id="LOCAL-00003" summary="now it reacts to mouse actions !">
+      <created>1588264952518</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588264952518</updated>
+    </task>
+    <task id="LOCAL-00004" summary="now it reacts to mouse actions !">
+      <created>1588278895823</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588278895823</updated>
+    </task>
+    <task id="LOCAL-00005" summary="now it reacts to mouse actions !">
+      <created>1588280052674</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588280052674</updated>
+    </task>
+    <task id="LOCAL-00006" summary="adding triangle drawing functionality">
+      <created>1588329172317</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588329172317</updated>
+    </task>
+    <task id="LOCAL-00007" summary="changeing color &lt;3">
+      <created>1588344423718</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588344423718</updated>
+    </task>
+    <task id="LOCAL-00008" summary="it works !changeing color &lt;3">
+      <created>1588444195703</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1588444195703</updated>
+    </task>
+    <task id="LOCAL-00009" summary="info and help feature">
+      <created>1588501487129</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1588501487129</updated>
+    </task>
+    <task id="LOCAL-00010" summary="&lt;3">
+      <created>1588528341123</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1588528341123</updated>
+    </task>
+    <task id="LOCAL-00011" summary="&lt;3">
+      <created>1588534338431</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1588534338431</updated>
+    </task>
+    <task id="LOCAL-00012" summary="trying to make scaleing work!">
+      <created>1588534949890</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1588534949890</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Project DONE !">
+      <created>1588541641122</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1588541641122</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding documentation" />
+    <MESSAGE value="now it reacts to mouse actions !" />
+    <MESSAGE value="adding triangle drawing functionality" />
+    <MESSAGE value="changeing color &lt;3" />
+    <MESSAGE value="it works !changeing color &lt;3" />
+    <MESSAGE value="info and help feature" />
+    <MESSAGE value="&lt;3" />
+    <MESSAGE value="trying to make scaleing work!" />
+    <MESSAGE value="Project DONE !" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project DONE !" />
+  </component>
+</project>
