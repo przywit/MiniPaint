@@ -1,4 +1,3 @@
-import
 
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
