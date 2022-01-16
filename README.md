@@ -1,4 +1,4 @@
-# Desktop Application writen on Object oriented Programming course.
+# Desktop Application writen for 'Object oriented Programming' course.
 
 ## Create a masterpiece from the figures provided
 
